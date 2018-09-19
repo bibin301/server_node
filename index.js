@@ -1,9 +1,17 @@
 const express = require ('express');
-const passport = require ('passport');
-const GoogleStrategy = require ('passport-google-oauth20').Strategy;    
+
 
 const app = express();
-passport.use(new GoogleStrategy());
+
+
+app.get('/auth/google',passport.authenticate('google',{
+    scope:['profile','email']
+})
+);
+
+app.get('auth/google/callback',passport.authenticate('google'));
+//client id 711054291343-mnk8hhbdt0p3ud5tp46l5v6qtpg0se72.apps.googleusercontent.com
+//client secret 4cazO9RtPsZvNFSpzNQXQPr1
 // app.get('/', (req,res)=>{
 //     res.send({hi:'bibin'});
 // });
