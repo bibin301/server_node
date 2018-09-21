@@ -1,22 +1,24 @@
 const express = require ('express');
-
-
+const mongoose = require ('mongoose');
+const keys = require('./config/keys');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
+require('./models/User');
+require('./services/passport');
+mongoose.connect(keys.mongoURI)
 const app = express();
 
+app.use(
+    cookieSession({
+        maxAge:30*24*60*60*1000,
+        keys:[keys.cookieKey]
 
-app.get('/auth/google',passport.authenticate('google',{
-    scope:['profile','email']
-})
+    })
 );
 
-app.get('auth/google/callback',passport.authenticate('google'));
-//client id 711054291343-mnk8hhbdt0p3ud5tp46l5v6qtpg0se72.apps.googleusercontent.com
-//client secret 4cazO9RtPsZvNFSpzNQXQPr1
-// app.get('/', (req,res)=>{
-//     res.send({hi:'bibin'});
-// });
+app.use(passport.initialize());
+app.use(passport.session());
 
-const PORT = process.env.PORT || 5000
-
-
+require('./routes/authRoutes')(app);
+const PORT = process.env.PORT || 5000;
 app.listen(PORT);
