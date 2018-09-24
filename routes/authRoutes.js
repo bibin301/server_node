@@ -21,4 +21,3 @@ module.exports = (app) => {
 
 }
 
-https://floating-woodland-75265.herokuapp.com/auth/google/callback 
