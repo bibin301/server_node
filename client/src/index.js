@@ -20,4 +20,6 @@ document.querySelector('#root')
     
   
    
-    
+ console.log("strite key is" , process.env);
+ 
+ console.log('environment is' , process.env.NODE_ENV)
