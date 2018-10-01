@@ -40,3 +40,13 @@ dispatch ({type: FETCH_USER , payload: res})
 
 
 }
+
+export const handleToken = (token) =>async dispatch=>{
+
+
+    const res = await axios.post('/api/stripe' ,token);
+    console.log("client response" , 455)
+    dispatch ({type: FETCH_USER , payload: res.data})
+    
+    
+    }
