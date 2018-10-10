@@ -5,10 +5,19 @@ import React  from 'react';
 const Landing  = () =>{
     return (
 
+        // <div>
+
+        //     <h2> Emaily </h2>
+
+        // </div>
+        
         <div>
-
-            <h2> Emaily </h2>
-
+       {/* Dashboard */}
+            <div className="fixed-action-btn">
+               <a className="btn-floating btn-large red">
+                   <li className="material-icons"> chat_bubble_outline </li>
+                </a>
+            </div>
         </div>
     );
 }

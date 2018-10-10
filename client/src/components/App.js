@@ -5,10 +5,12 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Header from './Header';
 import Landing from './Landing';
+import Dashboard from './Dashboard';
+import SurveyNew from './surveys/SurveyNew';
 
 // const Header = () =><h2>header </h2>
-const Dashboard = () =><h2>Dashboard </h2>
-const SurveyNew = () =><h2>SurveyNew </h2>
+// const Dashboard = () =><h2>Dashboard </h2>
+// const SurveyNew = () =><h2>SurveyNew </h2>
 
 
 class App extends Component {
@@ -23,8 +25,8 @@ class App extends Component {
           <BrowserRouter>
           <div>
               <Header/>
-              <Route exact path="/" component={Landing} />
-              <Route path="/surveys" component={Dashboard} />
+              <Route exact path="/" component={Dashboard} />
+              <Route path="/surveys" component={Landing} />
               <Route path="/surveys/new" component={SurveyNew} />
          </div>
           </BrowserRouter>
